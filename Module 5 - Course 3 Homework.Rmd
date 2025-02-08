@@ -1,0 +1,80 @@
+---
+title: "Module 5 - Analytic Homework Course 3"
+author: "rhbhimani"
+date: "2025-02-08"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+```{r}
+#Part 1 of the assignment
+
+#Part 1 –– Sources of Bias:
+#1. What are some potential sources of bias in the underlying data?
+#Bias in underlying data and machine learning can often begin even before the data has come to us for further analysis. More often the sources of bias start from the very initial stage where data collection instrument is designed, and data is collected (Suresh & Guttag, 2021). Based on that, some key sources of bias that have been discussed in class include: 
+#a.	Historical Bias: this is a potential source of bias which should be acknowledged even before the data collection process has started (Hellstrom et al., 2020). For example, if past hiring decision by the HR showed more inclination towards certain socio-demographic groups than others, the underlying data and the ML model trained on this underlying data may re-learn and reinforce those patterns. 
+#b.	Representation Bias: This is also known as sampling bias which refers to misrepresentation or under-representation of the sub-sample that the study or research is targeting (Catania et al., 2023). It means that the underlying dataset does not represent all demographics fairly such as certain gender or race is not considered making the prediction of the ML model skewed.  
+#c.	Measurement Bias: Measurement bias occurs after data collection where model can inherit personal biases as humans label training data inconsistently due to their own biases (Suresh & Guttag, 2021). 
+#d.	Learning Bias: This is also known as inductive bias (Hellstrom et al., 2020) and refers to the models which are learning on datasets split for testing and training. 
+#2. How might biases be introduced in the data science pipeline?
+#As explained earlier, biases are not just in the underlying data, but there are multiple stages prior to and after data collection that bias can emerge in the machine learning pipeline (Mikołajczyk-Bareła & Grochowski, 2023). This might be introduced in the form of ‘problem definition’ (Suresh & Guttag, 2021). For example, if the HR’s hiring model is trained to prefer ‘culturally fit’ individual than seeking ‘objective skills’ in the candidate, it may favor only people similar to past hires reinforcing the past bias. 
+#Other ways that bias might be introduced is through ‘data preprocessing’ whereby decisions are made as to how to handle missing data, normalizing features or filtering records on the basis of demographic can potentially introduce bias. Moreover, the paper of Suresh and Guttag (2021) highlights that most often algorithms used after model is trained might contribute to biases present in the underlying data, especially if the data overfits to historical hiring patterns. Finally, evaluation metrics can also be a potential source of introducing bias since fairness was not considered early on, leading to biased outcomes going unnoticed. Hence, a biased pipeline leads to biased decisions (Celi et al., 2022). 
+#3. What are the risks to fairness in downstream applications and deployment of the model described?
+#If a machine learning (ML) model is deployed in hiring, it is very possible that the risks of fairness may increase (DeBrusk, 2018). For example, if the ML model is trained to favor certain socio-demographic characteristics in an individual over others, it might be the case where qualified candidates from underrepresented groups would be unfairly screened out leading to unequal opportunities for many groups. 
+#Transparency could also be at risk if ML model is deployed which ultimately leads to unfair decision making. For example, if the candidates don’t know the reason due to which they were rejected, they would have no way to argue against or correct the potential errors. This also leads to a lot of discriminatory hiring which results in legal and ethical concerns in terms of fairness (Fahse et al., 2021). For example, in this way equal opportunity laws are violated which can be damaging to a company’s reputation. 
+```
+
+
+```{r}
+#Part 2 of the assignment
+#Part 2 –– Bias Metrics:
+
+#Q1. How would you describe a false positive in this problem to a policymaker or business owner? What’s the potential harm/cost of one?
+#A1. Before answering this question, it is important for me to reinforce the problem being discussed which is biasness in recruitment and hiring decisions. So, a false positive in hiring would mean that the ML model did not accurately predict that a certain individual may be fit for the job when in real that individual would not be fit for the job (Ullah & Jamjoom, 2023). Potential harm for a policymaker or business owner maybe the loss of productivity which maybe felt after hiring someone who is underqualified compared to the candidate who was not selected which would eventually affect the team’s efficiency and business performance. Similarly, if the hired candidate does not perform well or ends up leaving the company it would cost the company more than it would have if it hired the candidate who was qualified but did not meet the ML model’s socio-demographic criteria. For policymakers this could also mean that the company is unintentionally favouring certain demographic groups and might raise fairness concern due to existing inequalities in the company’s staff. 
+#Q2. How would you describe a false negative to a policymaker or business owner? What’s the potential harm/cost of one?
+#A2. Similarly, as false positive in recruitment and hiring problem, false negative means that ML model is inaccurately predicting a highly qualified candidate as unsuitable leading to their rejection (Delecraz et al., 2022). Potential harm/cost of hiring in a false negative way could include missing out on good talent and skilled candidate. If false negative of ML models favours certain demographic groups, it may affect underrepresented groups. One example of this could be rejecting strong female candidates in roles where often only men have been employed in the past due to historical bias. Thos adds to workplace inequality. Furthermore, it could lead to competitive disadvantage because the ML model keeps filtering out the most skilled and qualified candidates for the job instead of hiring them. For policymakers and business owners this leads to reduced economic mobility and barriers to opportunity, particularly for underrepresented groups. 
+#Q3. What confusion matrix metric (e.g., FPR, FNR, TPR, FDR, etc.) would you choose to focus on in terms of equity for this case? Think of fairness
+#A3.To work on equity and increase it, the key metric to focus on from the confusion matrix would be the false negative rate (FNR) – the matrix as discussed earlier rejects the candidate which are qualified for the job. Focusing on FNR would mean correcting a model which filters out many good candidates unfairly, which disproportionately effects historically underrepresented groups if bias exists in the model. Reducing the false negative rate in hiring ML model would mean that more candidates who are skilled and deserve the job role get a fair chance. Whereas false positive rate is also super important to focus on, I feel greater ethical and fairness concern in hiring is preventing talented individuals from being incorrectly filtered out. 
+```
+
+
+```{r}
+#REFERENCES 
+
+#Catania, B., Guerrini, G., & Janpih, Z. (2023, December). Mitigating Representation Bias in Data Transformations: A Constraint-based Optimization Approach. In 2023 IEEE International Conference on Big Data (BigData) (pp. 4127-4136). IEEE.
+#Celi, L. A., Cellini, J., Charpignon, M. L., Dee, E. C., Dernoncourt, F., Eber, R., ... & Yao, S. (2022). Sources of bias in artificial intelligence that perpetuate healthcare disparities—A global review. PLOS Digital Health, 1(3), e0000022.
+#DeBrusk, C. (2018). The risk of machine-learning bias (and how to prevent it). MIT Sloan Management Review, 15(1).
+#Delecraz, S., Eltarr, L., Becuwe, M., Bouxin, H., Boutin, N., & Oullier, O. (2022, May). Making recruitment more inclusive: Unfairness monitoring with a job matching machine-learning algorithm. In Proceedings of the 2nd International Workshop on Equitable Data and Technology (pp. 34-41).
+#Fahse, T., Huber, V., & van Giffen, B. (2021). Managing bias in machine learning projects. In Innovation Through Information Systems: Volume II: A Collection of Latest Research on Technology Issues (pp. 94-109). Springer International Publishing.
+#Hellström, T., Dignum, V., & Bensch, S. (2020). Bias in Machine Learning--What is it Good for?. arXiv preprint arXiv:2004.00686.
+#Mavrogiorgos, K., Kiourtis, A., Mavrogiorgou, A., Menychtas, A., & Kyriazis, D. (2024). Bias in Machine Learning: A Literature Review. Applied Sciences, 14(19), 8860.
+#Suresh, H., & Guttag, J. (2021, October). A framework for understanding sources of harm throughout the machine learning life cycle. In Proceedings of the 1st ACM Conference on Equity and Access in Algorithms, Mechanisms, and Optimization (pp. 1-9).
+#Ullah, Z., & Jamjoom, M. (2023). A smart secured framework for detecting and averting online recruitment fraud using ensemble machine learning techniques. PeerJ Computer Science, 9, e1234.
+```
+
+
+
